@@ -1,13 +1,63 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  overflow: auto;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+html {
+  max-width: 100svw;
+  font-family: "Rubik", sans-serif;
+}
+#root{
+  max-width: 100vw;
+}
+
+.cart{
+  text-decoration:none;
+  color:#23A99E;
+  background-color:#DBF4F6;
+  padding:8px;
+  padding-bottom: 2px;
+  border-radius:30px;
+}
+.cart:hover{
+  background-color: #23A99E;
+  color: white;
+}
+
+::-webkit-scrollbar {
+  width: 12px;
+}
+/* Handle (thumb) */
+::-webkit-scrollbar-thumb {
+  background-color: #23A99E; /* Change to your desired color */
+  border-radius: 10px; /* Rounded corners */
+}
+.grid{
+display: grid;
+grid-template-rows: repeat(5,1fr);
+grid-template-columns: repeat(12,1fr);
+gap: 20px;
+max-width: 1400px;
+margin-left:auto;
+margin-right:auto;
+padding-left:20px;
+padding-right:20px;
+margin-top: 80px;
+margin-bottom:80px;
+}
+
+
+@media(min-width:900px){
+  .logo{
+    height: 50px;
+  }
+  .emIn{
+    width:'250px'
+  }
+}
+
+@media(min-width:1200px){
+  .grid{
+    gap: 12px;
+  }
 }
