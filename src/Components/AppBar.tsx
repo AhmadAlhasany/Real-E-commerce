@@ -17,17 +17,23 @@ const navItems = ['Home', 'Shop', 'Blog', 'About', 'Contact'];
 
 function DrawerAppBar() {
     const theme = useTheme();
+    const [mobileOpen, setMobileOpen] = React.useState(false);
+    console.log(mobileOpen)
+
+    const handleDrawerToggle = () => {
+      setMobileOpen((prevState) => !prevState);
+    };
 
     const drawer = (
-        <Box /*onClick={handleDrawerToggle}*/ sx={{ textAlign: 'center' }}>
+        <Box sx={{ textAlign: 'center' }}>
           <Stack sx={{ my: 2 ,alignItems:'center', justifyContent:'center'}}>
              <img src={logo} style={{ paddingLeft:'50px'}}/>
           </Stack>
           <Divider />
-          <List>
+          <List onClick={handleDrawerToggle}>
             {navItems.map((item) => (
-            <Link to={`${item.toLocaleLowerCase()}`} style={{
-               textDecoration: 'none', color: 'inherit'}}>
+            <Link to={item!= 'Home' ? `${item.toLocaleLowerCase()}`:""} style={{
+               textDecoration: 'none', color: 'inherit'}} onClick={()=>window.scrollTo(0,0)} >
               <ListItem key={item} disablePadding>
                 <ListItemButton sx={{ textAlign: 'center' }}>
                   <ListItemText primary={item} />
@@ -59,6 +65,7 @@ function DrawerAppBar() {
               aria-label="open drawer"
               edge="start"
               sx={{ mr: 2, "&:hover":{ color : '#23A99E'}}}
+              onClick={handleDrawerToggle}
             >
               <MenuIcon />
             </IconButton>
@@ -66,7 +73,7 @@ function DrawerAppBar() {
             <IconButton
                 sx={{"&:hover":{ color : '#23A99E'}}}
             >
-            <Link to="./cart" style={{ textDecoration: 'none', color: 'inherit'}}>
+            <Link to="./cart" style={{ textDecoration: 'none', color: 'inherit'}} onClick={()=>window.scrollTo(0,0)}>
             <ShoppingBagIcon/>
             </Link>
           </IconButton>
@@ -80,23 +87,26 @@ function DrawerAppBar() {
           </Typography>
 
           <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
-            {navItems.map((item) => (
+            {navItems.map((item) => {
+              let mar = item == "Contact" ? '20px':'';
+              return(
               <Box  sx={{
-                height:'100%', display: 'inline-block', "&:hover":{borderBottom: '4px solid #23A99E'}}}>
-                <Link to={`${item.toLocaleLowerCase()}`} style ={{height: '100%'}}>
+                height:'100%', display: 'inline-block', "&:hover":{borderBottom: '4px solid #23A99E'},marginRight: mar}}>
+                <Link onClick={()=>window.scrollTo(0,0)}
+                 to={item!= 'Home' ? `${item.toLocaleLowerCase()}`:""} style ={{height: '100%'}}>
                   <Button key={item} sx={{ color: theme.palette.text.primary, fontSize:{md:"18px"},
                     "&:hover":{ color : '#23A99E'}}}>
                     {item} 
                   </Button>
                 </Link>
               </Box>
-            ))}
+            )})}
 
             <IconButton
               sx={{"&:hover":{ color : '#23A99E'}}}
             >
-              <Link to="./cart" style={{ textDecoration: 'none', color: 'inherit'}}>
-                <ShoppingBagIcon sx={{marginLeft:'20px'}}/>
+              <Link to="./cart" style={{ textDecoration: 'none', color: 'inherit'}} onClick={()=>window.scrollTo(0,0)}>
+                <ShoppingBagIcon sx={{marginLeft:'0px'}}/>
               </Link>
             </IconButton>
           </Box>
@@ -104,12 +114,11 @@ function DrawerAppBar() {
       </AppBar>
       <nav>
         <Drawer
-          //container={container}
           variant="temporary"
-          //open={mobileOpen}
-          //onClose={handleDrawerToggle}
+          open={mobileOpen}
+          onClose={handleDrawerToggle}
           ModalProps={{
-            keepMounted: true, // Better open performance on mobile.
+            keepMounted: true,
           }}
           sx={{
             display: { xs: 'block', sm: 'none' },

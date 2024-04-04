@@ -7,13 +7,13 @@ function FeaturedProd() {
     let array = Products.filter(item=>item.status=='featured')
     let arr = array.map(item => {
         return(  
-            <Grid item xs={12} sm={6} md={4} lg={3} sx={{maxWidth:'340px !important', height:'auto',
-                "&:hover":{cursor:'pointer', transform:'scale(102%)'}
-            }}>
+            <Grid key={item.id} item xs={12} sm={6} md={4} lg={3} sx={{maxWidth:'340px !important', height:'auto',
+                "&:hover":{cursor:'pointer', transform:'translateY(-10px)'}
+            }} className='gridItem'>
                 <Link to={`./shop/${item.id}`} style={{textDecoration:'none'}}>
-                <Paper sx={{width:'100%', height:'100%', textAlign:'center', padding: '15px', borderRadius:'5px'}} elevation={3}>
+                <Paper sx={{width:'100%', height:'100%', textAlign:'center', padding: '15px', borderRadius:'5px', display:'flex', justifyContent:'space-between',flexDirection:'column'}} elevation={3}>
                     <Box sx={{width:'100%', maxWidth:'fit-content'}}>
-                        <img src={item.img} alt="prduct" style={{objectFit:'contain', width:'100%', borderRadius:'10px' }}/>
+                        <img src={item.img} alt="prduct" style={{objectFit:'contain', width:'100%', borderRadius:'10px',maxHeight:'350px' }}/>
                     </Box>
                     <Box  sx={{textAlign:'start', marginTop:'10px'}}>
                         <Typography variant="subtitle1">adidas</Typography>
@@ -31,7 +31,6 @@ function FeaturedProd() {
             </Grid>
         )
     })
-    console.log(array)
      return (
         <Box sx={{maxWidth:'1400px', marginLeft:'auto', marginRight: 'auto'}}> 
             <Grid container my='40px' mt='5px' spacing={3} sx={{ marginLeft:'atuo', paddingRight:{sm:'20px', xs:'12px'}, paddingLeft:{sm:'20px', xs:'12px'}, justifyContent:'space-around'}}>

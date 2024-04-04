@@ -22,7 +22,7 @@ function Intro() {
           <Typography variant='subtitle1' my='10px' mb='20px'>save more with coupone & up to 70% off!</Typography>
           <Box sx={{ backgroundImage: `url(${but})`, backgroundRepeat: 'no-repeat', backgroundSize: 'contain',
             backgroundPosition: 'center', display:'inline', padding: '60px', paddingTop:'15px', paddingBottom:'15px'}}>
-            <Link to='shop' style={{textDecoration:'none',  fontWeight:'600'}}>
+            <Link to='shop' style={{textDecoration:'none',  fontWeight:'600'}} onClick={()=>window.scrollTo(0,0)}>
               <Button sx={{color:'#23A99E', }}> shop Now </Button>
             </Link>
           </Box>

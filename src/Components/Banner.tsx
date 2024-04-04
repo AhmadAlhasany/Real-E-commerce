@@ -17,9 +17,11 @@ function Banner(props: bannerProps) {
     let vari = mdCon ? '100% 100%' : '', justify = jCen ? 'center' : 'space-around', align = tCen ? 'auto' : 'center';
   
   return (
-    <Box my={props.my} sx={{height: {height}, backgroundColor:'red', width:'100%',
+    <Box my={props.my} sx={{height: {height}, width:'100%',
      backgroundImage:`url(${props.url})`, backgroundRepeat:'no-repeat', backgroundSize:{md:'100% 101%', xs: vari}}}>
-            <Stack direction='column'sx={{maxWidth:'1400px', marginLeft:'auto', marginRight:'auto', padding: '20px', textAlign:align ,alignItems: align , justifyContent: justify, height:'100%'}}>
+            <Stack direction='column'sx={{maxWidth:'1400px', marginLeft:'auto', marginRight:'auto', padding: '20px', textAlign:align ,alignItems: align , justifyContent: justify, height:'100%'}}
+              className='stack'
+            >
                 {props.children}
             </Stack>
     </Box>

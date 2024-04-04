@@ -19,10 +19,6 @@ html {
   padding-bottom: 2px;
   border-radius:30px;
 }
-.cart:hover{
-  background-color: #23A99E;
-  color: white;
-}
 
 ::-webkit-scrollbar {
   width: 12px;
@@ -46,6 +42,15 @@ margin-top: 80px;
 margin-bottom:80px;
 }
 
+.stack:hover  button{
+  background-color:#23A99E;
+  border: none;
+  color: white;
+}
+.gridItem:hover  a{
+  background-color: #23A99E;
+  color: white;
+}
 
 @media(min-width:900px){
   .logo{

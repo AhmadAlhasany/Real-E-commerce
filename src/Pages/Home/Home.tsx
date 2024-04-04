@@ -26,7 +26,6 @@ function Home() {
     <Typography variant="subtitle1" sx={{textAlign:'center'}}>Summer Collection New Modern Design</Typography>
     <NewProd/>
     <Banners/>
-    <Footer/>
   </Box>
   )
 }
