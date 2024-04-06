@@ -1,4 +1,4 @@
-import { Box, ButtonGroup, Grid, Paper, Rating, Stack, Typography, Button } from "@mui/material"
+import { Box, ButtonGroup, Grid, Paper, Rating, Stack, Typography, Button, Pagination } from "@mui/material"
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import Banner from "../../Components/Banner"
 import banner from '../../Data/banner/b1.jpg'
@@ -6,8 +6,12 @@ import {Products} from '../../Data/productData'
 import { Link } from "react-router-dom"
 import React from "react";
 
+
 function Shop() {
     const [filter, setFilter] = React.useState<String|null>('all');
+    const [page, setPage] = React.useState<number>(1);
+
+
     let arr = Products.filter(item => item.type == filter || filter == 'all').map(item => {
         return(  
             <Grid key={item.id} item xs={12} sm={6} md={4} lg={3} sx={{maxWidth:'340px !important', height:'auto',
@@ -33,6 +37,9 @@ function Shop() {
                 </Link>            
             </Grid>
         )})
+
+    let array = arr.slice(12*(page-1), Math.min(12*(page), arr.length));
+
   return (
     <Box mt='62px'>
         <Banner url={banner} jCen my="60px" mdCon>
@@ -41,21 +48,25 @@ function Shop() {
         </Banner>
         <Stack sx={{width:'100%', alignItems:'center', marginBottom:'30px'}}>
             <ButtonGroup variant="contained" aria-label="Basic button group" sx={{width:'min-conten', flexWrap:'wrap', boxShadow:'none', alignItems:'center', justifyContent: 'center', paddingRight:'15px', paddingLeft:'15px'}}>
-                <Button onClick={(e)=>{setFilter( e.currentTarget.getAttribute('name') )}} name='all' sx={{backgroundColor:filter=='all'?'white':'#23A99E', color:filter=='all'?'#23A99E':'white', '&:hover':{backgroundColor:'#3F8D88'}, border:'1px solid white !important',borderRadius:'5px !important'}}>All</Button>
-                <Button onClick={(e)=>{setFilter( e.currentTarget.getAttribute('name') )}} name ='shoes'sx={{backgroundColor:filter=='shoes'?'white':'#23A99E', color:filter=='shoes'?'#23A99E':'white', '&:hover':{backgroundColor:'#3F8D88'}, border:'1px solid white !important',borderRadius:'5px !important'}}>Shoes</Button>
-                <Button onClick={(e)=>{setFilter( e.currentTarget.getAttribute('name') )}} name ='jacket'sx={{backgroundColor:filter=='jacket'?'white':'#23A99E', color:filter=='jacket'?'#23A99E':'white', '&:hover':{backgroundColor:'#3F8D88'}, border:'1px solid white !important',borderRadius:'5px !important'}}>Jackets</Button>
-                <Button onClick={(e)=>{setFilter( e.currentTarget.getAttribute('name') )}} name ='shirt'sx={{backgroundColor:filter=='shirt'?'white':'#23A99E', color:filter=='shirt'?'#23A99E':'white', '&:hover':{backgroundColor:'#3F8D88'}, border:'1px solid white !important',borderRadius:'5px !important'}}>Shirts</Button>
-                <Button onClick={(e)=>{setFilter( e.currentTarget.getAttribute('name') )}} name ='bag'sx={{backgroundColor:filter=='bag'?'white':'#23A99E', color:filter=='bag'?'#23A99E':'white', '&:hover':{backgroundColor:'#3F8D88'}, border:'1px solid white !important',borderRadius:'5px !important'}}>Bags</Button>
-                <Button onClick={(e)=>{setFilter( e.currentTarget.getAttribute('name') )}} name ='hat'sx={{backgroundColor:filter=='hat'?'white':'#23A99E', color:filter=='hat'?'#23A99E':'white', '&:hover':{backgroundColor:'#3F8D88'}, border:'1px solid white !important',borderRadius:'5px !important'}}>Hats</Button>
-                <Button onClick={(e)=>{setFilter( e.currentTarget.getAttribute('name') )}} name ='pants'sx={{backgroundColor:filter=='pants'?'white':'#23A99E', color:filter=='pants'?'#23A99E':'white', '&:hover':{backgroundColor:'#3F8D88'}, border:'1px solid white !important',borderRadius:'5px !important'}}>Pants</Button>
-                <Button onClick={(e)=>{setFilter( e.currentTarget.getAttribute('name') )}} name ='watch'sx={{backgroundColor:filter=='watch'?'white':'#23A99E', color:filter=='watch'?'#23A99E':'white', '&:hover':{backgroundColor:'#3F8D88'}, border:'1px solid white !important',borderRadius:'5px !important'}}>Watches</Button>
+                <Button onClick={(e)=>{setFilter( e.currentTarget.getAttribute('name')); setPage(1)}} name='all' sx={{backgroundColor:filter=='all'?'white':'#23A99E', color:filter=='all'?'#23A99E':'white', '&:hover':{backgroundColor:filter=='all'?'white':'#3F8D88'}, border:'1px solid white !important',borderRadius:'5px !important'}}>All</Button>
+                <Button onClick={(e)=>{setFilter( e.currentTarget.getAttribute('name')); setPage(1)}} name ='shoes'sx={{backgroundColor:filter=='shoes'?'white':'#23A99E', color:filter=='shoes'?'#23A99E':'white', '&:hover':{backgroundColor:filter=='shoes'?'white':'#3F8D88'}, border:'1px solid white !important',borderRadius:'5px !important'}}>Shoes</Button>
+                <Button onClick={(e)=>{setFilter( e.currentTarget.getAttribute('name')); setPage(1)}} name ='jacket'sx={{backgroundColor:filter=='jacket'?'white':'#23A99E', color:filter=='jacket'?'#23A99E':'white', '&:hover':{backgroundColor:filter=='jacket'?'white':'#3F8D88'}, border:'1px solid white !important',borderRadius:'5px !important'}}>Jackets</Button>
+                <Button onClick={(e)=>{setFilter( e.currentTarget.getAttribute('name')); setPage(1)}} name ='shirt'sx={{backgroundColor:filter=='shirt'?'white':'#23A99E', color:filter=='shirt'?'#23A99E':'white', '&:hover':{backgroundColor:filter=='shirt'?'white':'#3F8D88'}, border:'1px solid white !important',borderRadius:'5px !important'}}>Shirts</Button>
+                <Button onClick={(e)=>{setFilter( e.currentTarget.getAttribute('name')); setPage(1)}} name ='bag'sx={{backgroundColor:filter=='bag'?'white':'#23A99E', color:filter=='bag'?'#23A99E':'white', '&:hover':{backgroundColor:filter=='bag'?'white':'#3F8D88'}, border:'1px solid white !important',borderRadius:'5px !important'}}>Bags</Button>
+                <Button onClick={(e)=>{setFilter( e.currentTarget.getAttribute('name')); setPage(1)}} name ='hat'sx={{backgroundColor:filter=='hat'?'white':'#23A99E', color:filter=='hat'?'#23A99E':'white', '&:hover':{backgroundColor:filter=='hat'?'white':'#3F8D88'}, border:'1px solid white !important',borderRadius:'5px !important'}}>Hats</Button>
+                <Button onClick={(e)=>{setFilter( e.currentTarget.getAttribute('name')); setPage(1)}} name ='pants'sx={{backgroundColor:filter=='pants'?'white':'#23A99E', color:filter=='pants'?'#23A99E':'white', '&:hover':{backgroundColor:filter=='pants'?'white':'#3F8D88'}, border:'1px solid white !important',borderRadius:'5px !important'}}>Pants</Button>
+                <Button onClick={(e)=>{setFilter( e.currentTarget.getAttribute('name')); setPage(1)}} name ='watch'sx={{backgroundColor:filter=='watch'?'white':'#23A99E', color:filter=='watch'?'#23A99E':'white', '&:hover':{backgroundColor:filter=='watch'?'white':'#3F8D88'}, border:'1px solid white !important',borderRadius:'5px !important'}}>Watches</Button>
             </ButtonGroup>
         </Stack>
         <Box sx={{maxWidth:'1400px', marginLeft:'auto', marginRight: 'auto'}}> 
             <Grid container my='40px' mt='5px' spacing={3} sx={{ marginLeft:'atuo', paddingRight:{sm:'20px', xs:'12px'}, paddingLeft:{sm:'20px', xs:'12px'}, justifyContent:'space-around'}}>
-                {arr}
+                {array}
             </Grid>
         </Box>
+        <Stack my='30px' direction='row' sx={{width:'100%', justifyContent:'center'}}>
+            <Pagination page={page} count={Math.ceil(arr.length/12)} variant="outlined" shape="rounded" color='secondary' 
+            onChange={(e, pageNum)=>{window.scrollTo(0,300);setPage(pageNum)}} />
+        </Stack>
     </Box>
   )
 }

@@ -94,7 +94,7 @@ function DrawerAppBar() {
                 height:'100%', display: 'inline-block', "&:hover":{borderBottom: '4px solid #23A99E'},marginRight: mar}}>
                 <Link onClick={()=>window.scrollTo(0,0)}
                  to={item!= 'Home' ? `${item.toLocaleLowerCase()}`:""} style ={{height: '100%'}}>
-                  <Button key={item} sx={{ color: theme.palette.text.primary, fontSize:{md:"18px"},
+                  <Button key={item} sx={{ color: theme.palette.text.primary, fontSize:{md:"16px"},
                     "&:hover":{ color : '#23A99E'}}}>
                     {item} 
                   </Button>
