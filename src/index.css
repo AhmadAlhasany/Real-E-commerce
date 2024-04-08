@@ -23,6 +23,11 @@ html {
 ::-webkit-scrollbar {
   width: 12px;
 }
+
+.table::-webkit-scrollbar{
+  width:5px;
+}
+
 /* Handle (thumb) */
 ::-webkit-scrollbar-thumb {
   background-color: #23A99E; /* Change to your desired color */
@@ -61,6 +66,8 @@ input[type="number"]::-webkit-outer-spin-button {
 .proDets{
   max-height:700px;
 }
+
+
 
 @media(min-width:900px){
   .logo{

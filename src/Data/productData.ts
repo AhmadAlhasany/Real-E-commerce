@@ -52,7 +52,7 @@ export type ProductType = {
     type: "all"|"shoes"|"jacket"|"shirt"|"bag"|"hat"|"pants"|"watch"|"",
 }
 
-export const Products /*: ProductType[]*/ = [
+export const Products: ProductType[] = [
     {
         id:1,
         title: "blue shirt",

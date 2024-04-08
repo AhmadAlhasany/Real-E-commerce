@@ -9,16 +9,19 @@ import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import logo from '../Data/logo/logo.png'
 import { useTheme } from '@mui/material/styles';
-import { Divider, Drawer, List, ListItem, ListItemButton, ListItemText, Stack, StepIcon } from '@mui/material';
+import { Badge, Divider, Drawer, List, ListItem, ListItemButton, ListItemText, Stack, StepIcon } from '@mui/material';
 import ShoppingBagIcon from '@mui/icons-material/ShoppingBag';
 import { Link } from 'react-router-dom';
+import { useAppSelector } from '../RTK/Hooks';
 
-const navItems = ['Home', 'Shop', 'Blog', 'About', 'Contact'];
+
+const navItems = ['Home', 'Shop', 'About'];
 
 function DrawerAppBar() {
+    const state = useAppSelector(state=>state);
+    const badge = Object.keys(state.curPro).length;
     const theme = useTheme();
     const [mobileOpen, setMobileOpen] = React.useState(false);
-    console.log(mobileOpen)
 
     const handleDrawerToggle = () => {
       setMobileOpen((prevState) => !prevState);
@@ -70,13 +73,15 @@ function DrawerAppBar() {
               <MenuIcon />
             </IconButton>
             <img src={logo} style={{ paddingLeft:'50px'}}/>
-            <IconButton
-                sx={{"&:hover":{ color : '#23A99E'}}}
-            >
             <Link to="./cart" style={{ textDecoration: 'none', color: 'inherit'}} onClick={()=>window.scrollTo(0,0)}>
-            <ShoppingBagIcon/>
+              <IconButton
+                sx={{"&:hover":{ color : '#23999E'}}}
+              >
+                <Badge badgeContent={badge} color="error">
+                  <ShoppingBagIcon/>
+                </Badge>
+              </IconButton>
             </Link>
-          </IconButton>
           </Box>
           <Typography
             variant="h6"
@@ -88,10 +93,10 @@ function DrawerAppBar() {
 
           <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
             {navItems.map((item) => {
-              let mar = item == "Contact" ? '20px':'';
+              let mar = item == "About" ? '20px':'';
               return(
               <Box  sx={{
-                height:'100%', display: 'inline-block', "&:hover":{borderBottom: '4px solid #23A99E'},marginRight: mar}}>
+                height:'100%', display: 'inline-block', "&:hover":{borderBottom: '4px solid #23A99E'},marginRight: mar?mar:'5px'}}>
                 <Link onClick={()=>window.scrollTo(0,0)}
                  to={item!= 'Home' ? `${item.toLocaleLowerCase()}`:""} style ={{height: '100%'}}>
                   <Button key={item} sx={{ color: theme.palette.text.primary, fontSize:{md:"16px"},
@@ -102,13 +107,15 @@ function DrawerAppBar() {
               </Box>
             )})}
 
-            <IconButton
-              sx={{"&:hover":{ color : '#23A99E'}}}
-            >
-              <Link to="./cart" style={{ textDecoration: 'none', color: 'inherit'}} onClick={()=>window.scrollTo(0,0)}>
-                <ShoppingBagIcon sx={{marginLeft:'0px'}}/>
-              </Link>
-            </IconButton>
+            <Link to="./cart" style={{ textDecoration: 'none', color: 'inherit'}} onClick={()=>window.scrollTo(0,0)}>
+              <IconButton
+                sx={{"&:hover":{ color : '#23999E'}}}
+              >
+                <Badge badgeContent={badge} color="error">
+                  <ShoppingBagIcon sx={{marginLeft:'0px'}}/>
+                </Badge>
+              </IconButton>
+            </Link>
           </Box>
         </Toolbar>
       </AppBar>

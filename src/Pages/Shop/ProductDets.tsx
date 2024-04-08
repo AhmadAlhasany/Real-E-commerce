@@ -2,9 +2,10 @@ import { useParams } from 'react-router-dom'
 import { Products } from '../../Data/productData'
 import { Box, FormControl, InputLabel, MenuItem, Select, Stack, Typography , SelectChangeEvent, Button} from '@mui/material';
 import React, { ChangeEvent } from 'react';
-import { PortableWifiOff } from '@mui/icons-material';
+import { useAppDispatch } from '../../RTK/Hooks';
+import { buy } from '../../RTK/curProductsSlice';
 function ProductDets() {
-
+  const dispatch = useAppDispatch()
   const {id} = useParams();
   const [size, setSize] = React.useState('');
   const [count, setCount] = React.useState(1);
@@ -16,7 +17,6 @@ function ProductDets() {
     setSize(event.target.value as string);
   };
   const handleNumber = (e: ChangeEvent<HTMLInputElement>) => {
-    console.log(e.target.value)
     if(Number(e.target.value) == Pro.count)
       setCount(Number(e.target.value))
     else if(Number(e.target.value) > Pro.count)
@@ -56,8 +56,8 @@ function ProductDets() {
             style={{height:'36.5px',width:'80px' ,marginRight:'10px', paddingLeft:'10px'}} onChange={(e)=> {handleNumber(e)}}
           ></input>
           <Button disabled={size.length == 0 || count == 0?true:false} variant="contained" sx={{backgroundColor:'#23A99E', color:'white', hegiht:'100%', borderRadius:'2px',
-            '&:hover':{backgroundColor:'#23A99E'},
-          }}>
+            '&:hover':{backgroundColor:'#23A99E'},}} onClick={()=>{dispatch(buy({id, count, size}))}}
+            >
             Add To Cart
           </Button>
         </Box>

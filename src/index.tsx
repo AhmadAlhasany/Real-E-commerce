@@ -2,7 +2,8 @@ import ReactDOM from 'react-dom';
 import App from './App';
 import './index.css'
 import {ThemeProvider, createTheme} from '@mui/material';
-
+import { Provider } from 'react-redux';
+import { store } from './RTK/store';
 
 const theme = createTheme({
   typography:{
@@ -37,13 +38,18 @@ const theme = createTheme({
     },
     text:{
       primary: '#616472'
+    },
+    error:{
+      main: '#23999E'
     }
   }
 })
 
 ReactDOM.render(
   <ThemeProvider theme={theme}>
-    <App />
+    <Provider store={store}>
+      <App />
+    </Provider>
   </ThemeProvider>
   ,
   document.getElementById('root')

@@ -10,7 +10,7 @@ function FeaturedProd() {
             <Grid key={item.id} item xs={12} sm={6} md={4} lg={3} sx={{maxWidth:'340px !important', height:'auto',
                 "&:hover":{cursor:'pointer', transform:'translateY(-10px)'}
             }} className='gridItem'>
-                <Link to={`./shop/${item.id}`} style={{textDecoration:'none'}}>
+                <Link to={`./shop/${item.id}`} style={{textDecoration:'none'}} onClick={()=>window.scrollTo(0,0)}>
                 <Paper sx={{width:'100%', height:'100%', textAlign:'center', padding: '15px', borderRadius:'5px', display:'flex', justifyContent:'space-between',flexDirection:'column'}} elevation={3}>
                     <Box sx={{width:'100%', maxWidth:'fit-content'}}>
                         <img src={item.img} alt="prduct" style={{objectFit:'contain', width:'100%', borderRadius:'10px',maxHeight:'350px' }}/>
@@ -21,7 +21,7 @@ function FeaturedProd() {
                         <Rating name="read-only" value={item.evaluation} readOnly />
                         <Stack direction='row' justifyContent='space-between' alignItems='center'>
                             <Typography variant="h6" color="#23A99E" fontWeight={700}>${item.price}</Typography>
-                                <Link to={`./shop/${item.id}`} className ='cart'>
+                                <Link to={`./shop/${item.id}`} className ='cart' onClick={()=>window.scrollTo(0,0)}>
                                     <ShoppingCartIcon/>
                                 </Link>
                         </Stack>

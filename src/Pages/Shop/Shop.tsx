@@ -11,13 +11,13 @@ function Shop() {
     const [filter, setFilter] = React.useState<String|null>('all');
     const [page, setPage] = React.useState<number>(1);
 
-
-    let arr = Products.filter(item => item.type == filter || filter == 'all').map(item => {
+    let products = Products
+    let arr = products.filter(item => item.type == filter || filter == 'all').map(item => {
         return(  
             <Grid key={item.id} item xs={12} sm={6} md={4} lg={3} sx={{maxWidth:'340px !important', height:'auto',
                 "&:hover":{cursor:'pointer', transform:'translateY(-10px)'}
             }} className="gridItem">
-                <Link to={`./${item.id}`} style={{textDecoration:'none',}}>
+                <Link to={`./${item.id}`} style={{textDecoration:'none',}} onClick={()=>window.scrollTo(0,0)}>
                 <Paper sx={{width:'100%', height:'100%', textAlign:'center', padding: '15px', borderRadius:'5px', display:'flex', justifyContent:'space-between',flexDirection:'column'}} elevation={3}>
                     <Box sx={{width:'100%'}}>
                         <img src={item.img} alt="prduct" style={{objectFit:'contain', width:'100%', borderRadius:'10px',maxHeight:'350px'}}/>
@@ -28,7 +28,7 @@ function Shop() {
                         <Rating name="read-only" value={item.evaluation} readOnly />
                         <Stack direction='row' justifyContent='space-between' alignItems='center'>
                             <Typography variant="h6" color="#23A99E" fontWeight={700}>${item.price}</Typography>
-                                <Link to={`./${item.id}`} className ='cart'>
+                                <Link to={`./${item.id}`} className ='cart' onClick={()=>window.scrollTo(0,0)}>
                                     <ShoppingCartIcon/>
                                 </Link>
                         </Stack>
