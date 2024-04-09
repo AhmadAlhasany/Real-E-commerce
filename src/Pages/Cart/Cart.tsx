@@ -82,7 +82,7 @@ function Cart() {
                 <img src={row.img} style={{height:'100%', maxHeight:'70px'}}/>
               </TableCell>
               <TableCell align='center'>{row.name}</TableCell>
-              <TableCell align='center'>{row.size}</TableCell>
+              <TableCell align='center'>{row.size=='10' ? 'Small' : row.size=='20'? 'Medium' : 'Large'}</TableCell>
               <TableCell align='center'>{row.price}</TableCell>
               <TableCell align='center'>{row.quantity}</TableCell>
               <TableCell align='center'>{row.subtotal}</TableCell>

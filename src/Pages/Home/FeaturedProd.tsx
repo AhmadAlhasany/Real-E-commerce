@@ -7,7 +7,7 @@ function FeaturedProd() {
     let array = Products.filter(item=>item.status=='featured')
     let arr = array.map(item => {
         return(  
-            <Grid key={item.id} item xs={12} sm={6} md={4} lg={3} sx={{maxWidth:'340px !important', height:'auto',
+            <Grid key={item.id} item xs={12} sm={6} md={4} lg={3} sx={{maxWidth:'340px !important', height:'auto',transition:'All 0.5s',
                 "&:hover":{cursor:'pointer', transform:'translateY(-10px)'}
             }} className='gridItem'>
                 <Link to={`./shop/${item.id}`} style={{textDecoration:'none'}} onClick={()=>window.scrollTo(0,0)}>

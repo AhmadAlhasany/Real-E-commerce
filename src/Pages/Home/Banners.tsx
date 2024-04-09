@@ -16,7 +16,7 @@ function Banners() {
                     <Typography variant="h6" color='whitesmoke' sx={{opacity:'0.9'}}>Crazy deals</Typography>
                     <Typography variant="h3" color="white">Buy 1 get 1 for free</Typography>
                     <Typography variant="h6" color='whitesmoke' sx={{opacity:'0.9',}}>The best classic dress on sale at cara</Typography>
-                    <Button variant="outlined" sx={{marginTop:'20px',border:'1.5px solid white','&:hover':{backgroundColor:'#23A99E', border:'none'}, color:'white', alignSelf:'self-start'}}>
+                    <Button variant="outlined" sx={{marginTop:'20px',border:'1.5px solid white','&:hover':{backgroundColor:'#23A99E'}, color:'white', alignSelf:'self-start'}}>
                         Learn More
                     </Button>
                 </Banner>
@@ -26,7 +26,7 @@ function Banners() {
                     <Typography variant="h6"  color='whitesmoke' sx={{opacity:'0.9'}}>Spring/summer</Typography>
                     <Typography variant="h3" color="white">Upcoming season</Typography>
                     <Typography variant="h6" color='whitesmoke' sx={{opacity:'0.9',}}>The best classic dress on sale at cara</Typography>
-                    <Button variant="outlined" sx={{marginTop:'20px',border:'1.5px solid white','&:hover':{backgroundColor:'#23A99E', border:'none'}, color:'white', alignSelf:'self-start'}}>
+                    <Button variant="outlined" sx={{marginTop:'20px',border:'1.5px solid white','&:hover':{backgroundColor:'#23A99E'}, color:'white', alignSelf:'self-start'}}>
                         Collection
                     </Button>
                 </Banner>

@@ -14,7 +14,7 @@ function Shop() {
     let products = Products
     let arr = products.filter(item => item.type == filter || filter == 'all').map(item => {
         return(  
-            <Grid key={item.id} item xs={12} sm={6} md={4} lg={3} sx={{maxWidth:'340px !important', height:'auto',
+            <Grid key={item.id} item xs={12} sm={6} md={4} lg={3} sx={{maxWidth:'340px !important', height:'auto',transition:'All 0.5s',
                 "&:hover":{cursor:'pointer', transform:'translateY(-10px)'}
             }} className="gridItem">
                 <Link to={`./${item.id}`} style={{textDecoration:'none',}} onClick={()=>window.scrollTo(0,0)}>
