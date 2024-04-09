@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/Real-E-commerce/static/css/main.d358fd6e.css",
-    "main.js": "/Real-E-commerce/static/js/main.66aa58f7.js",
+    "main.css": "/Real-E-commerce/static/css/main.d820ae1c.css",
+    "main.js": "/Real-E-commerce/static/js/main.63bfcdf9.js",
     "static/media/b-cart.png": "/Real-E-commerce/static/media/b-cart.d27d94d3b18765a0d795.png",
     "static/media/a5.jpg": "/Real-E-commerce/static/media/a5.fbf9819cff1f7c132ccd.jpg",
     "static/media/b7.jpg": "/Real-E-commerce/static/media/b7.d4722441982128961491.jpg",
@@ -51,11 +51,11 @@
     "static/media/n1.jpg": "/Real-E-commerce/static/media/n1.d0fc999e5c31100e7a56.jpg",
     "static/media/homePageShop.svg": "/Real-E-commerce/static/media/homePageShop.75677a8b7715c8053e886439a66fa72b.svg",
     "index.html": "/Real-E-commerce/index.html",
-    "main.d358fd6e.css.map": "/Real-E-commerce/static/css/main.d358fd6e.css.map",
-    "main.66aa58f7.js.map": "/Real-E-commerce/static/js/main.66aa58f7.js.map"
+    "main.d820ae1c.css.map": "/Real-E-commerce/static/css/main.d820ae1c.css.map",
+    "main.63bfcdf9.js.map": "/Real-E-commerce/static/js/main.63bfcdf9.js.map"
   },
   "entrypoints": [
-    "static/css/main.d358fd6e.css",
-    "static/js/main.66aa58f7.js"
+    "static/css/main.d820ae1c.css",
+    "static/js/main.63bfcdf9.js"
   ]
 }
